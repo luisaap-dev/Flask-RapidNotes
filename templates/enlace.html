@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2>Enlace de la Nota</h2> <!-- Título de la página -->
+    <div class="card mt-4">
+        <div class="card-body">
+            <p class="card-text">Una vez que visites el enlace, la nota será eliminada.</p>
+            <!-- Mostrar el enlace de la nota -->
+            <p class="card-text">Enlace: <a href="{{ enlace }}">{{ enlace }}</a></p>
+        </div>
+    </div>
+    <div class="mt-4">
+        <!-- Mostrar la imagen del código QR -->
+        <img src="data:image/png;base64,{{ qr_img_base64 }}" alt="Código QR" class="img-fluid">
+    </div>
+{% endblock %}

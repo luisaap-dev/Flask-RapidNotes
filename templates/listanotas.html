@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    {% if notas %}
+        <div class="container">
+            <h1 class="mt-4">Lista de Notas</h1> <!-- Título principal -->
+            <div class="table-responsive"> <!-- Hacer la tabla responsive -->
+                <table class="table mt-4"> <!-- Tabla formateada utilizando Bootstrap -->
+                    <thead>
+                        <tr>
+                            <th scope="col">Texto</th> <!-- Encabezados de columna -->
+                            <th scope="col">Enlace</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for nota in notas %}
+                            <tr>
+                                <td>{{ nota['nota']['texto'] }}</td> <!-- Mostrar el texto de la nota -->
+                                <td><a href="{{ nota['enlace'] }}">{{ nota['enlace'] }}</a></td> <!-- Mostrar un enlace relacionado con la nota -->
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    {% else %}
+        <div class="container">
+            <p>No hay notas disponibles.</p> <!-- Mensaje para indicar que no hay notas -->
+        </div>
+    {% endif %}
+    
+    {% if mensaje %}
+        <script>
+            alert("{{ mensaje }}"); <!-- Mostrar un mensaje de alerta si hay un mensaje disponible -->
+            window.location.href = "{{ url_for('index') }}"; <!-- Redirigir al usuario a la página principal -->
+        </script>
+    {% endif %}
+{% endblock %}
+
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css">
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>

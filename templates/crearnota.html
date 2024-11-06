@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<main>
+    <!-- Título de la página -->
+    <h2>Crear Nota</h2> 
+    <form method="post" class="mt-4">
+        <div class="mb-3">
+            <!-- Etiqueta para el área de texto -->
+            <label for="texto">Escribe tu nota</label>
+            <!-- Área de texto para ingresar la nota -->
+            <textarea name="texto" id="texto" class="form-control no-resize"  style="resize: none;" rows="8" cols="40" required></textarea>
+        </div>
+        <!-- Botón para guardar la nota -->
+        <button type="submit" class="btn btn-primary" title="Guardar nota" aria-label="Guardar nota">Guardar</button>
+    </form>
+</main>
+{% endblock %}
